@@ -17,13 +17,14 @@ const getVisibleTodos = (todos, filter) => {
 
 const mapStateToProps = state => {
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos: getVisibleTodos(state.todos, state.visibilityFilter),
+    visibilityFilter: state.visibilityFilter
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: id => {
+    onTodoChange: (newValue, id) => {
       dispatch(toggleTodo(id));
     }
   };
